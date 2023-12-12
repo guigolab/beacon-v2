@@ -20,7 +20,7 @@
         },
         "unit":{
             "type":"string",
-            "enum":["TPM","RPM","RPKM","FPKM"]
+            "enum":["TPM","RPM","RPKM","FPKM","raw"]
         }
     },
     "required": [

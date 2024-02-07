@@ -1,0 +1,25 @@
+{
+    "$comment": "version: ga4gh-beacon-feature-v2.1.0",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": true,
+    "description": "Schema for a feature value. It can be any biological sequence mapped to a genome, gene, transcript, genomic location",
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "Sequence feature identifier"
+        },
+        "location": {
+            "$ref": "https://raw.githubusercontent.com/ga4gh/vrs/main/schema/vrs.json#/definitions/Location"
+        },
+        "seqOntologyRef":{
+            "type":"string",
+            "description": "Sequence Ontology Reference"
+        }
+    },
+    "required": [
+        "id",
+        "location"
+    ],
+    "title": "Sequence feature object",
+    "type": "object"
+}

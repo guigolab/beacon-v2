@@ -228,6 +228,12 @@
                     "label": "Recurrent Malignant Neoplasm"
                 }
             ]
+        },
+        "matrices": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         }
     },
     "required": [

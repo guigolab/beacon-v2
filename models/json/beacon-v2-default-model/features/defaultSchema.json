@@ -11,9 +11,21 @@
         "location": {
             "$ref": "https://raw.githubusercontent.com/ga4gh/vrs/main/schema/vrs.json#/definitions/Location"
         },
-        "seqOntologyRef":{
-            "type":"string",
+        "seqOntologyRef": {
+            "type": "string",
             "description": "Sequence Ontology Reference"
+        },
+        "identifiers": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "matrices": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         }
     },
     "required": [

@@ -17,15 +17,10 @@
         },
         "featureId": {
             "type": "string"
-        },
-        "unit":{
-            "type":"string",
-            "enum":["TPM","RPM","RPKM","FPKM","raw"]
         }
     },
     "required": [
         "expressionValue",
-        "unit",
         "biosampleId",
         "featureId"
     ],

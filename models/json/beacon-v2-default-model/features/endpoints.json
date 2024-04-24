@@ -202,21 +202,10 @@
                 ]
             }
         },
-        "/features/{id}/biosamples": {
+        "/features/{id}/matrices": {
             "get": {
-                "description": "Get the biosample list from one feature, identified by its (unique) 'id'",
-                "operationId": "getOneFeatureBiosamples",
-                "parameters": [
-                    {
-                        "$ref": "#/components/parameters/requestedSchema"
-                    },
-                    {
-                        "$ref": "#/components/parameters/skip"
-                    },
-                    {
-                        "$ref": "#/components/parameters/limit"
-                    }
-                ],
+                "description": "Get matrices list about one feature, identified by its (unique) 'id'",
+                "operationId": "getOneFeature",
                 "responses": {
                     "200": {
                         "$ref": "#/components/responses/ResultsOKResponse"
@@ -236,8 +225,8 @@
                 }
             ],
             "post": {
-                "description": "Get the biosamples list from one feature, identified by its (unique) 'id'",
-                "operationId": "postOneFeatureBiosamples",
+                "description": "Get matrices list about one Feature, identified by its (unique) 'id'",
+                "operationId": "postOneFeature",
                 "requestBody": {
                     "content": {
                         "application/json": {

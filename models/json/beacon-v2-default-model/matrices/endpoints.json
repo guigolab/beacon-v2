@@ -47,8 +47,7 @@
                 "name": "minValue",
                 "schema": {
                     "items": {
-                        "minimum": 0.0,
-                        "type": "float"
+                        "type": "number"
                     }
                 }
             },
@@ -57,8 +56,23 @@
                 "name": "maxValue",
                 "schema": {
                     "items": {
-                        "type": "float"
+                        "type": "number"
                     }
+                }
+            },
+            "unit": {
+                "in": "query",
+                "name": "unit",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "TPM",
+                        "RPM",
+                        "RPKM",
+                        "FPKM",
+                        "raw"
+                    ]
                 }
             },
             "limit": {
@@ -162,6 +176,15 @@
                     },
                     {
                         "$ref": "#/components/parameters/biosampleIDList"
+                    },
+                    {
+                        "$ref": "#/components/parameters/minValue"
+                    },
+                    {
+                        "$ref": "#/components/parameters/maxValue"
+                    },
+                    {
+                        "$ref": "#/components/parameters/unit"
                     },
                     {
                         "$ref": "#/components/parameters/filters"
@@ -386,10 +409,10 @@
                         "$ref": "#/components/parameters/requestedSchema"
                     },
                     {
-                        "$ref": "#/components/parameters/min_value"
+                        "$ref": "#/components/parameters/minValue"
                     },
                     {
-                        "$ref": "#/components/parameters/max_value"
+                        "$ref": "#/components/parameters/maxValue"
                     },
                     {
                         "$ref": "#/components/parameters/featureIDList"

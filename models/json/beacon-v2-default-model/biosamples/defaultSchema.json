@@ -231,6 +231,7 @@
         },
         "matrices": {
             "type": "array",
+            "description": "Related matrices ",
             "items": {
                 "type": "string"
             }

@@ -13,7 +13,7 @@
         },
         "seqOntologyRef": {
             "type": "string",
-            "description": "Sequence Ontology Reference"
+            "description": "Sequence Ontology Reference, will change in favor of VRS type"
         },
         "identifiers": {
             "type": "array",
@@ -23,6 +23,7 @@
         },
         "matrices": {
             "type": "array",
+            "description": "Related matrices ",
             "items": {
                 "type": "string"
             }

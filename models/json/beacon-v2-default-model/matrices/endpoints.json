@@ -42,9 +42,9 @@
                     "type": "array"
                 }
             },
-            "min_value": {
+            "minValue": {
                 "in": "query",
-                "name": "min_value",
+                "name": "minValue",
                 "schema": {
                     "items": {
                         "minimum": 0.0,
@@ -52,9 +52,9 @@
                     }
                 }
             },
-            "max_value": {
+            "maxValue": {
                 "in": "query",
-                "name": "max_value",
+                "name": "maxValue",
                 "schema": {
                     "items": {
                         "type": "float"

@@ -2,7 +2,7 @@
     "$comment": "version: ga4gh-beacon-dataset-v2.1.0",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "additionalProperties": true,
-    "description": "A Matrix (RNAseq) available in the beacon",
+    "description": "An expression matrix available in the beacon",
     "properties": {
         "id": {
             "description": "Unique identifier of the matrix",
@@ -17,7 +17,8 @@
             "type": "string"
         },
         "taxonId": {
-            "type": "string"
+            "type": "string",
+            "description": "NCBI taxonomic identifier of the species"
         },
         "info": {
             "$ref": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/main/framework/json/common/beaconCommonComponents.json#/definitions/Info"
@@ -48,6 +49,7 @@
             }
         },
         "referenceAnnotations":{
+            "description":"Links to reference annotations",
             "type": "array",
             "items":{
                 "type": "string"

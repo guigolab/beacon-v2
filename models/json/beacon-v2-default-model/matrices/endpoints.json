@@ -22,6 +22,45 @@
                     "type": "array"
                 }
             },
+            "featureIDList": {
+                "in": "query",
+                "name": "featureIDList",
+                "schema": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "biosampleIDList": {
+                "in": "query",
+                "name": "biosampleIDList",
+                "schema": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "min_value": {
+                "in": "query",
+                "name": "min_value",
+                "schema": {
+                    "items": {
+                        "minimum": 0.0,
+                        "type": "float"
+                    }
+                }
+            },
+            "max_value": {
+                "in": "query",
+                "name": "max_value",
+                "schema": {
+                    "items": {
+                        "type": "float"
+                    }
+                }
+            },
             "limit": {
                 "in": "query",
                 "name": "limit",
@@ -117,6 +156,12 @@
                     },
                     {
                         "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/featureIDList"
+                    },
+                    {
+                        "$ref": "#/components/parameters/biosampleIDList"
                     },
                     {
                         "$ref": "#/components/parameters/filters"
@@ -215,13 +260,142 @@
                 ]
             }
         },
-        "/matrices/{id}/expressionValues": {
+        "/matrices/{id}/features": {
             "get": {
-                "description": "Get the expressionValue list from one matrix, identified by its (unique) 'id'",
+                "description": "Get the list of features of one matrix, identified by its (unique) 'id'",
+                "operationId": "getOneMatrixFeatures",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/requestedSchema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/skip"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/ResultsOKResponse"
+                    },
+                    "default": {
+                        "$ref": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/main/framework/json/responses/beaconErrorResponse.json",
+                        "description": "An unsuccessful operation"
+                    }
+                },
+                "tags": [
+                    "GET Endpoints"
+                ]
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/entryId"
+                }
+            ],
+            "post": {
+                "description": "Get the list of features of one matrix, identified by its (unique) 'id'",
+                "operationId": "postOneMatrixFeatures",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/main/framework/json/requests/beaconRequestBody.json"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/ResultsOKResponse"
+                    },
+                    "default": {
+                        "$ref": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/main/framework/json/responses/beaconErrorResponse.json",
+                        "description": "An unsuccessful operation"
+                    }
+                },
+                "tags": [
+                    "POST Endpoints"
+                ]
+            }
+        },
+        "/matrices/{id}/biosamples": {
+            "get": {
+                "description": "Get a list of biosamples of one matrix, identified by its (unique) 'id'",
                 "operationId": "getOneMatrixBiosamples",
                 "parameters": [
                     {
                         "$ref": "#/components/parameters/requestedSchema"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/ResultsOKResponse"
+                    },
+                    "default": {
+                        "$ref": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/main/framework/json/responses/beaconErrorResponse.json",
+                        "description": "An unsuccessful operation"
+                    }
+                },
+                "tags": [
+                    "GET Endpoints"
+                ]
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/entryId"
+                }
+            ],
+            "post": {
+                "description": "Get the list of biosamples of one matrix, identified by its (unique) 'id'",
+                "operationId": "postOneMatrixBiosamples",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/main/framework/json/requests/beaconRequestBody.json"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/ResultsOKResponse"
+                    },
+                    "default": {
+                        "$ref": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/main/framework/json/responses/beaconErrorResponse.json",
+                        "description": "An unsuccessful operation"
+                    }
+                },
+                "tags": [
+                    "POST Endpoints"
+                ]
+            }
+        },
+        "/matrices/{id}/expression_values": {
+            "get": {
+                "description": "Get the expressionValue list from one matrix, identified by its (unique) 'id'",
+                "operationId": "getOneMatrixExpressionValues",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/requestedSchema"
+                    },
+                    {
+                        "$ref": "#/components/parameters/min_value"
+                    },
+                    {
+                        "$ref": "#/components/parameters/max_value"
+                    },
+                    {
+                        "$ref": "#/components/parameters/featureIDList"
+                    },
+                    {
+                        "$ref": "#/components/parameters/biosampleIDList"
                     },
                     {
                         "$ref": "#/components/parameters/skip"
@@ -249,8 +423,8 @@
                 }
             ],
             "post": {
-                "description": "Get the biosamples list from one matrix, identified by its (unique) 'id'",
-                "operationId": "postOneMatrixBiosamples",
+                "description": "Get the expression value list of one matrix, identified by its (unique) 'id'",
+                "operationId": "postOneMatrixExpressionValues",
                 "requestBody": {
                     "content": {
                         "application/json": {

@@ -1,0 +1,69 @@
+{
+    "$comment": "version: ga4gh-beacon-dataset-v2.1.0",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": true,
+    "description": "An expression matrix available in the beacon",
+    "properties": {
+        "id": {
+            "description": "Unique identifier of the matrix",
+            "type": "string"
+        },
+        "name": {
+            "description": "Name of the matrix",
+            "type": "string"
+        },
+        "description": {
+            "description": "Description of the matrix",
+            "type": "string"
+        },
+        "taxonId": {
+            "type": "string",
+            "description": "NCBI taxonomic identifier of the species"
+        },
+        "info": {
+            "$ref": "https://raw.githubusercontent.com/ga4gh-beacon/beacon-v2/main/framework/json/common/beaconCommonComponents.json#/definitions/Info"
+        },
+        "downloadLink": {
+            "description": "Link to download the matrix",
+            "type": "string"
+        },
+        "unit": {
+            "type": "string",
+            "enum": [
+                "TPM",
+                "RPM",
+                "RPKM",
+                "FPKM",
+                "raw"
+            ]
+        },
+        "size": {
+            "type":"object",
+            "properties":{
+                "rows": {
+                    "type": "number"
+                },
+                "columns":{
+                    "type": "number"
+                }
+            }
+        },
+        "referenceAnnotations":{
+            "description":"Links to reference annotations",
+            "type": "array",
+            "items":{
+                "type": "string"
+            }
+        }
+    },
+    "required": [
+        "id",
+        "name",
+        "unit",
+        "size",
+        "featureType",
+        "referenceAnnotations"
+
+    ],
+    "type": "object"
+}

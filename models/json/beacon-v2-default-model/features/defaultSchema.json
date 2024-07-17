@@ -9,11 +9,16 @@
             "description": "Sequence feature identifier"
         },
         "location": {
-            "$ref": "https://raw.githubusercontent.com/ga4gh/vrs/main/schema/vrs.json#/definitions/Location"
+            "$ref": "https://raw.githubusercontent.com/ga4gh/vrs/main/schema/vrs.json#/definitions/Location",
+            "description": "Use of VRS location"
         },
         "seqOntologyRef": {
             "type": "string",
             "description": "Sequence Ontology Reference, will change in favor of VRS type"
+        },
+        "bioPathwayID":{
+            "type":"string",
+            "description": "A GO or KEGG identifier. Example: GO:0008150 or KEGG:hsa00010"
         },
         "identifiers": {
             "type": "array",
